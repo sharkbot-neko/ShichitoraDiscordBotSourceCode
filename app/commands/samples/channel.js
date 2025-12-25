@@ -76,7 +76,6 @@ export async function execute(interaction) {
   const guild = interaction.guild;
   const user = interaction.user;
 
-  // 権限チェック
   if (!interaction.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
     return interaction.reply({ content: 'このコマンドを使用するには管理者権限が必要です。', ephemeral: true });
   }
@@ -100,7 +99,6 @@ export async function execute(interaction) {
         const topic = interaction.options.getString('topic');
         const nsfw = interaction.options.getBoolean('nsfw') ?? false;
 
-        // バリデーション
         if (!name.match(/^[a-z0-9_-]{2,100}$/)) {
           return interaction.editReply('チャンネル名は2～100文字で、英小文字、数字、ハイフン、アンダースコアのみ使用可能です。');
         }
@@ -127,7 +125,6 @@ export async function execute(interaction) {
         const topic = interaction.options.getString('topic') ?? channel.topic;
         const nsfw = interaction.options.getBoolean('nsfw') ?? channel.nsfw;
 
-        // バリデーション
         if (name && !name.match(/^[a-z0-9_-]{2,100}$/)) {
           return interaction.editReply('チャンネル名は2～100文字で、英小文字、数字、ハイフン、アンダースコアのみ使用可能です。');
         }
@@ -143,7 +140,6 @@ export async function execute(interaction) {
         const channel = interaction.options.getChannel('channel');
         const { name, type, topic, nsfw, permissionOverwrites, parentId, rateLimitPerUser, position } = channel;
 
-        // バリデーション
         if (!channel.deletable) {
           return interaction.editReply('このチャンネルは削除できません。');
         }
@@ -172,7 +168,6 @@ export async function execute(interaction) {
       }
     }
 
-    // Webhookログ送信
     try {
       await axios.post(webhookUrl, {
         embeds: [logEmbed.toJSON()]
