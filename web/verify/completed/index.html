@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>七虎なるくん | Verify</title>
+  <link rel="icon" type="image/jpeg" href="/icon.JPG" sizes="32x32"/>
+  <link rel="icon" type="image/jpeg" href="/icon.JPG" sizes="16x16"/>
+  <link rel="apple-touch-icon" href="/icon.JPG" sizes="180x180"/>
+</head>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #16213e;
+      color: #fff;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .container {
+      max-width: 420px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #00ff88, #00d0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+    p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    .loader {
+      border: 6px solid rgba(0, 255, 136, 0.2);
+      border-top: 6px solid #00ff88;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 30px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .success {
+      color: #00ff88;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .error {
+      color: #ff6b6b;
+      font-size: 1.2rem;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+  </style>
+<body>
+  <div class="container">
+    <h1>Verify System</h1>
+    <p>Verified!!!</p>
+  </div>
+</body>
+</html>
+
