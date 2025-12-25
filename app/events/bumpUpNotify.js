@@ -59,7 +59,6 @@ const getServerSettingsPath = (guildId) => join(process.cwd(), 'bump', `${guildI
 const bumpNotifySettings = new Map();
 const bumpSchedules = new Map();
 
-// File
 async function ensureBumpDirectory() {
   try {
     await mkdir(join(process.cwd(), 'bump'), { recursive: true });
@@ -68,7 +67,6 @@ async function ensureBumpDirectory() {
   }
 }
 
-// LoadSettings
 async function loadBumpSettings(guildId) {
   const settingsPath = getServerSettingsPath(guildId);
   try {
@@ -86,7 +84,6 @@ async function loadBumpSettings(guildId) {
   }
 }
 
-// LoadSchedule
 async function loadBumpSchedules(client, guildId) {
   const settings = bumpNotifySettings.get(guildId);
   if (!settings?.schedules?.length) return;
@@ -100,7 +97,6 @@ async function loadBumpSchedules(client, guildId) {
   }
 }
 
-// SettingsSave
 async function saveBumpSettings(guildId) {
   const settings = bumpNotifySettings.get(guildId);
   if (!settings) return;
@@ -128,7 +124,6 @@ async function saveBumpSettings(guildId) {
   }
 }
 
-// NotificationSchedule
 async function scheduleNotification(client, schedule, delay) {
   const scheduleId = `${schedule.guildId}-${schedule.service}-${Date.now()}`;
   bumpSchedules.set(scheduleId, { ...schedule, notifyAt: Date.now() + delay });
@@ -165,7 +160,12 @@ async function scheduleNotification(client, schedule, delay) {
   await saveBumpSettings(schedule.guildId);
 }
 
-// BumpUpProcess
+function hasActiveSchedule(guildId, channelId, service) {
+  return Array.from(bumpSchedules.values()).some(
+    s => s.guildId === guildId && s.channelId === channelId && s.service === service
+  );
+}
+
 async function handleBump(client, message, service, pattern, command) {
   const guildId = message.guildId;
   await loadBumpSettings(guildId);
@@ -176,6 +176,10 @@ async function handleBump(client, message, service, pattern, command) {
   const content = embed?.description || embed?.title || message.content;
 
   if (pattern.SUCCESS.test(content)) {
+    if (hasActiveSchedule(guildId, message.channelId, service)) {
+      return;
+    }
+
     await message.channel.send({
       embeds: [
         new EmbedBuilder()
@@ -204,7 +208,6 @@ async function handleBump(client, message, service, pattern, command) {
   }
 }
 
-// MainHndler
 export function handleBumpUpNotify(client) {
   client.once('ready', async () => {
     await ensureBumpDirectory();
@@ -219,7 +222,6 @@ export function handleBumpUpNotify(client) {
     console.log('BumpUpNotify initialized');
   });
 
-  // messageCreateCommands
   client.on('messageCreate', async (message) => {
     if (!message.guildId) return;
 
@@ -240,7 +242,6 @@ export function handleBumpUpNotify(client) {
     }
   });
 
-  // messageUpdateCommands
   client.on('messageUpdate', async (oldMessage, newMessage) => {
     if (!newMessage.guildId) return;
 
@@ -289,6 +290,10 @@ export function handleBumpUpNotify(client) {
         if (!embed) continue;
 
         if (h.check(newMessage)) {
+          if (hasActiveSchedule(newMessage.guildId, newMessage.channelId, h.service)) {
+            continue;
+          }
+
           await newMessage.channel.send({
             embeds: [
               new EmbedBuilder()
@@ -320,5 +325,4 @@ export function handleBumpUpNotify(client) {
   });
 }
 
-// Load
 export { bumpNotifySettings, getServerSettingsPath };
