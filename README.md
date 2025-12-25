@@ -15,7 +15,12 @@
 7. AI学習に使用しないでください
 8. ルール違反した場合、法的処置をします
 
+### 機能
+- 荒らし対策
+- 認証機能
+
 ### 関連
 - 作者のDiscord: 7n6r
 - サポートサーバー: https://discord.gg/CNuAEaJPx5
 - 公式サイト: https://bot.discordd.me/
+- 導入: https://bot.discodd.me/add
