@@ -1,0 +1,381 @@
+{
+  "antiTroll": {
+    "enabled": true,
+    "rules": {
+      "invite_link": {
+        "enabled": true
+      },
+      "special_word_link": {
+        "enabled": true
+      },
+      "line_link": {
+        "enabled": true
+      },
+      "encode_link": {
+        "enabled": true
+      },
+      "redirect_link": {
+        "enabled": true
+      },
+      "short_link": {
+        "enabled": true
+      },
+      "template_link": {
+        "enabled": true
+      },
+      "token": {
+        "enabled": true
+      },
+      "mention": {
+        "enabled": true
+      },
+      "bot_invite_link": {
+        "enabled": true
+      },
+      "spoiler_spam": {
+        "enabled": true
+      },
+      "danger_site": {
+        "enabled": true
+      },
+      "command_link": {
+        "enabled": true
+      },
+      "image_spam": {
+        "enabled": true
+      },
+      "zalgo": {
+        "enabled": true
+      },
+      "uuid": {
+        "enabled": true
+      },
+      "mail": {
+        "enabled": true
+      },
+      "steam": {
+        "enabled": true
+      },
+      "image_site": {
+        "enabled": true
+      },
+      "super_special_character": {
+        "enabled": true
+      },
+      "kairun_invite": {
+        "enabled": true
+      },
+      "blank_only": {
+        "enabled": true
+      },
+      "nsfw_content": {
+        "enabled": true
+      },
+      "gore_content": {
+        "enabled": true
+      }
+    }
+  },
+  "antiMentionSpam": {
+    "enabled": true,
+    "mentionLimit": 5,
+    "timeframe": 5000
+  },
+  "antiTooManyLine": {
+    "enabled": true,
+    "lineLimit": 10,
+    "timeframe": 5000
+  },
+  "antiCharacterRepeats": {
+    "enabled": true,
+    "repeatLimit": 5,
+    "timeframe": 5000
+  },
+  "antiTooImages": {
+    "enabled": true,
+    "imageLimit": 8,
+    "timeframe": 5000
+  },
+  "antiTooEmoji": {
+    "enabled": true,
+    "emojiLimit": 10,
+    "timeframe": 5000
+  },
+  "antiSpam": {
+    "enabled": true,
+    "messageLimit": 5,
+    "timeframe": 5000
+  },
+  "antiRaid": {
+    "enabled": true,
+    "timeframe": 5000
+  },
+  "antiDuplicate": {
+    "enabled": true,
+    "similarity": 0.9,
+    "timeframe": 5000
+  },
+  "antiReactionSpam": {
+    "enabled": true,
+    "reactionLimit": 4,
+    "timeframe": 5000
+  },
+  "antiThreadSpam": {
+    "enabled": true,
+    "threadLimit": 3,
+    "timeframe": 5000
+  },
+  "antiEventCreateSpam": {
+    "enabled": true,
+    "eventLimit": 3,
+    "timeframe": 5000
+  },
+  "antiEventUpdateSpam": {
+    "enabled": true,
+    "eventLimit": 3,
+    "timeframe": 5000
+  },
+  "antiEventDeleteSpam": {
+    "enabled": true,
+    "eventLimit": 3,
+    "timeframe": 5000
+  },
+  "antiInviteCreateSpam": {
+    "enabled": true,
+    "inviteLimit": 3,
+    "timeframe": 5000
+  },
+  "antiChannelCreateSpam": {
+    "enabled": true,
+    "nukeLimit": 5,
+    "timeframe": 10000
+  },
+  "antiChannelUpdateSpam": {
+    "enabled": true,
+    "nukeLimit": 7,
+    "timeframe": 10000
+  },
+  "antiChannelDeleteSpam": {
+    "enabled": true,
+    "nukeLimit": 5,
+    "timeframe": 10000
+  },
+  "antiRoleCreateSpam": {
+    "enabled": true,
+    "nukeLimit": 5,
+    "timeframe": 10000
+  },
+  "antiRoleUpdateSpam": {
+    "enabled": true,
+    "nukeLimit": 8,
+    "timeframe": 10000
+  },
+  "antiRoleDeleteSpam": {
+    "enabled": true,
+    "nukeLimit": 5,
+    "timeframe": 10000
+  },
+  "antiWebhookCreateSpam": {
+    "enabled": true,
+    "nukelimit": 3,
+    "timeframe": 10000
+  },
+  "antiBanAddSpam": {
+    "enabled": true,
+    "nukeLimit": 5,
+    "timeframe": 10000
+  },
+  "antiKickSpam": {
+    "enabled": true,
+    "nukeLimit": 5,
+    "timeframe": 10000
+  },
+  "antiTimeoutSpam": {
+    "enabled": true,
+    "nukeLimit": 7,
+    "timeframe": 10000
+  },
+  "antiTooManyImages": {
+    "enabled": true,
+    "imageLimit": 8,
+    "timeframe": 5000
+  },
+  "antiChannelCreate": {
+    "enabled": true,
+    "nukeLimit": 12,
+    "timeframe": 60000
+  },
+  "antiSoundboardSpam": {
+    "enabled": true,
+    "soundLimit": 5,
+    "timeframe": 5000
+  },
+  "antiEmojiCreateSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiEmojiUpdateSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiEmojiDeleteSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiStickerCreateSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiStickerUpdateSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiStickerDeleteSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiSoundboardCreateSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiSoundboardUpdateSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiSoundboardDeleteSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiAutoModRuleUpdateSpam": {
+    "enabled": true,
+    "nukeLimit": 10,
+    "timeframe": 60000
+  },
+  "antiAutoModRuleDeleteSpam": {
+    "enabled": true,
+    "nukeLimit": 5,
+    "timeframe": 60000
+  },
+  "antiJoinRaid": {
+    "enabled": true,
+    "joinLimit": 15,
+    "timeframe": 10000
+  },
+  "antiTooLink": {
+    "enabled": true,
+    "emojiLimit": 10
+  },
+  "antiTooEmbed": {
+    "enabled": true,
+    "emojiLimit": 8
+  },
+  "antiLongMessage": {
+    "enabled": true,
+    "lengthLimit": 500
+  },
+  "antiVoiceChatJoinRaid": {
+    "enabled": true,
+    "memberLimit": 15,
+    "timeframe": 10000
+  },
+  "antiSpecificCharSpam": {
+    "enabled": true,
+    "targets": [
+      {
+        "char": "#",
+        "limit": 10
+      },
+      {
+        "char": "-",
+        "limit": 10
+      }
+    ]
+  },
+  "antiMarkdownSpam": {
+    "enabled": true,
+    "ratio": 0.3
+  },
+  "whitelist": {
+    "channels": [
+      "1234567890",
+      "1234567890"
+    ],
+    "categories": [
+      "1234567890",
+      "1234567890"
+    ],
+    "roles": [
+      "1234567890",
+      "1234567890"
+    ],
+    "members": [
+      "1234567890",
+      "1234567890"
+    ]
+  },
+  "ruleWhitelist": {
+    "invite_link": {
+      "channels": [],
+      "categories": [],
+      "roles": [
+        "1234567890"
+      ],
+      "members": []
+    }
+  },
+  "block": {
+    "enabled": true,
+    "timeout": 604800000
+  },
+  "points": {
+    "thresholds": {
+      "10": "kick",
+      "15": "delete_webhook",
+      "20": "kick",
+      "30": "ban"
+    },
+    "spam": 3,
+    "raid": 1,
+    "duplicate": 2,
+    "reaction_spam": 5,
+    "thread_limit": 5,
+    "invite_create_spam": 5,
+    "steam": 10,
+    "glitch": 2,
+    "image_spam": 5,
+    "image_site": 2,
+    "uuid": 2,
+    "zalgo": 2,
+    "invite_link": 3,
+    "special_word_link": 10,
+    "super_special_word_link": 10,
+    "redirect_link": 2,
+    "encode_link": 2,
+    "line_link": 4,
+    "short_and_board_link": 2,
+    "template_link": 2,
+    "token": 10,
+    "mention": 6,
+    "bot_invite_link": 3,
+    "danger_site": 4,
+    "spoiler_spam": 8
+  },
+  "muteRoleId": null,
+  "notBot": {
+    "enabled": false
+  },
+  "notAdmin": {
+    "enabled": false
+  },
+  "logWebhook": null,
+  "modLogWebhook": null,
+}
