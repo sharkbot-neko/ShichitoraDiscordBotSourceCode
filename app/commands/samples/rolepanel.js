@@ -183,7 +183,6 @@ export async function execute(interaction) {
   if (subcommand === 'create') {
     const description = interaction.options.getString('description');
 
-    // ロールの収集（最大20個）
     const roles = [];
     for (let i = 1; i <= 20; i++) {
       const role = interaction.options.getRole(`role${i}`);
@@ -207,7 +206,6 @@ export async function execute(interaction) {
       return;
     }
 
-    // StringSelectMenuの作成
     const selectMenu = new StringSelectMenuBuilder()
       .setCustomId('rolepanel_select')
       .setPlaceholder('ロールを選択してください')
