@@ -222,7 +222,6 @@ const ruleCategories = {
 };
 
 export async function execute(interaction) {
-  // 権限チェック
   if (!interaction.guild.members.me.permissions.has(['SendMessages', 'ManageRoles', 'ManageChannels', 'ModerateMembers'])) {
     await interaction.reply({
       content: 'ボットに必要な権限（メッセージ送信、ロール管理、チャンネル管理、メンバー管理）がありません！',
@@ -233,7 +232,6 @@ export async function execute(interaction) {
 
   const { settings, settingsPath } = await loadSettings(interaction.guildId);
 
-  // Step 1: ルールカテゴリー選択
   const categorySelect = new StringSelectMenuBuilder()
     .setCustomId('point_rule_category')
     .setPlaceholder('ルールカテゴリーを選択')
@@ -274,7 +272,6 @@ export async function execute(interaction) {
     return;
   }
 
-  // Step 2: ルール選択
   const ruleSelect = new StringSelectMenuBuilder()
     .setCustomId('point_rule_select')
     .setPlaceholder('ルールを選択')
@@ -306,7 +303,6 @@ export async function execute(interaction) {
     return;
   }
 
-  // Step 3: ポイント入力（モーダル）
   const modal = new ModalBuilder()
     .setCustomId('point_modal')
     .setTitle('違反ポイントの設定')
@@ -355,7 +351,6 @@ export async function execute(interaction) {
       return;
     }
 
-    // 設定保存
     settings.points[rule] = points;
     await saveSettings(settingsPath, settings);
     await logToWebhook(interaction, `Set ${points} points for rule ${rule}`);
