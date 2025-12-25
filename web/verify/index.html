@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>七虎なるくん | Verify</title>
+  <link rel="icon" type="image/jpeg" href="/icon.JPG" sizes="32x32"/>
+  <link rel="icon" type="image/jpeg" href="/icon.JPG" sizes="16x16"/>
+  <link rel="apple-touch-icon" href="/icon.JPG" sizes="180x180"/>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #16213e;
+      color: #fff;
+      font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .container {
+      max-width: 420px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #00ff88, #00d0ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+    p {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    .loader {
+      border: 6px solid rgba(0, 255, 136, 0.2);
+      border-top: 6px solid #00ff88;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 30px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .success {
+      color: #00ff88;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    .error {
+      color: #ff6b6b;
+      font-size: 1.2rem;
+    }
+    .footer {
+      margin-top: 50px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    canvas {
+      border: 2px solid #00ff88;
+      border-radius: 8px;
+      margin: 1rem 0;
+      image-rendering: pixelated;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input {
+      background: #0f3460;
+      color: #fff;
+    }
+
+    button {
+      background: #00ff88;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #00cc66;
+    }
+
+    .hold-btn {
+      background: #ff4500;
+      color: white;
+    }
+
+    .hold-btn.holding {
+      background: #ff9500;
+    }
+
+    .progress {
+      height: 6px;
+      background: #333;
+      border-radius: 3px;
+      margin: 1rem 0;
+      overflow: hidden;
+    }
+
+    .progress > div {
+      height: 100%;
+      width: 0%;
+      background: #00ff88;
+      transition: width 0.1s linear;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Verify System</h1>
+
+    <div id="step-captcha">
+      <p>Please enter the characters shown in the image (case-insensitive).</p>
+      <canvas id="captcha-canvas" width="200" height="60"></canvas>
+      <input type="text" id="captcha-input" placeholder="Enter here" autocomplete="off" />
+      <button id="captcha-verify">Confirmation</button>
+      <p class="error" id="captcha-error"></p>
+      <h6>By proceeding with authentication, you agree to the <a href="https://bot.discordd.me/terms">Terms of Service</a> and <a href="https://bot.discordd.me/privacy">Privacy Policy</a>.</h6>
+    </div>
+
+    <div id="step-hold" style="display:none">
+      <p>Please press and hold the button below for <strong>2 seconds</strong>.</p>
+      <button id="hold-button" class="hold-btn">Press and hold to authenticate</button>
+      <div id="hold-progress" class="progress"><div></div></div>
+      <p class="error" id="hold-error"></p>
+    </div>
+
+    <div id="step-sending" style="display:none">
+      <div class="loader"></div>
+      <p>Sending authentication information...</p>
+    </div>
+  </div>
+
+  <div id="blocked" style="display:none; color:red;">
+    <h1>Access restrictions</h1>
+    <p>A proxy or VPN connection was detected.</p>
+  </div>
+  
+  <script>
+  // スクリプトは非公開
+  </script>
+</body>
+</html>
