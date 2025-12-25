@@ -233,7 +233,6 @@ const ruleCategories = {
 };
 
 export async function execute(interaction) {
-  // 権限チェック
   if (!interaction.guild.members.me.permissions.has(['SendMessages', 'ManageRoles', 'ManageChannels', 'ModerateMembers'])) {
     await interaction.reply({
       content: 'ボットに必要な権限（メッセージ送信、ロール管理、チャンネル管理、メンバー管理）がありません！',
@@ -244,7 +243,6 @@ export async function execute(interaction) {
 
   const { settings, settingsPath } = await loadSettings(interaction.guildId);
 
-  // Step 1: 入力か選択かを選ばせる
   const inputOrSelect = new StringSelectMenuBuilder()
     .setCustomId('whitelist_input_or_select')
     .setPlaceholder('入力または選択')
@@ -284,7 +282,6 @@ export async function execute(interaction) {
   const row3 = new ActionRowBuilder().addComponents(typeSelect);
   const row4 = new ActionRowBuilder().addComponents(ruleTypeSelect);
 
-  // 初期メッセージをreplyで送信
   await interaction.reply({
     content: 'ホワイトリストの設定を行います。以下の選択肢から選んでください。',
     components: [row1, row2, row3, row4],
@@ -371,7 +368,6 @@ export async function execute(interaction) {
     return;
   }
 
-  // Step 3: ルールごとのホワイトリストの場合
   let rule = null;
   if (ruleType === 'rule') {
     const ruleCategorySelect = new StringSelectMenuBuilder()
@@ -432,7 +428,6 @@ export async function execute(interaction) {
     }
   }
 
-  // Step 4: 対象の選択または入力
   let targetId, targetName;
   if (inputMethod === 'select') {
     let selectMenu;
@@ -556,7 +551,6 @@ export async function execute(interaction) {
           )
         );
 
-      // モーダル表示
       await buttonInteraction.showModal(modal);
 
       try {
@@ -589,7 +583,6 @@ export async function execute(interaction) {
           targetName = targetId + ` (${type}情報取得不可)`;
         }
 
-        // モーダル送信後にreplyで応答
         await modalInteraction.reply({
           content: `${type} ID ${targetName} を処理中...`,
           ephemeral: true,
