@@ -53,9 +53,8 @@ function hashBrowser(browserInfo) {
   return crypto.createHash('sha256').update(normalized).digest('hex').slice(0, 16);
 }
 
-export const name = 'messageCreate';
-
-export async function execute(message, client) {
+export async function execute( //...
+  ) {
   // VerifyDetaCheckCode...(超重要秘密のため伏せています)
 
   if (code) {
