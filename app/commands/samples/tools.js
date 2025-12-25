@@ -4,7 +4,6 @@ import { create, all } from 'mathjs';
 
 const math = create(all);
 
-// シーザー暗号関数（crypto 用）
 function caesarCipher(text, shift) {
     shift = ((shift % 26) + 26) % 26;
     return text
@@ -20,7 +19,6 @@ function caesarCipher(text, shift) {
         .join('');
 }
 
-// ダイスロール関数（roll 用）
 function ndnDice(ndn) {
     const ndnArr = ndn.split('d');
     const number = parseInt(ndnArr[0]);
