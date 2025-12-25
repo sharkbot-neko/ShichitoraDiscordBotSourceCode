@@ -76,7 +76,6 @@ export async function execute(interaction) {
         const channelId = interaction.options.getString('channel_id');
         const isPrivate = interaction.options.getBoolean('private') ?? false;
 
-        // チャンネルを取得（指定がない場合は現在のチャンネル）
         let targetChannel = interaction.channel;
         if (channelId) {
           targetChannel = await interaction.guild.channels.fetch(channelId);
@@ -85,7 +84,6 @@ export async function execute(interaction) {
           }
         }
 
-        // チャンネルがスレッド対応かチェック
         const isForum = targetChannel.type === ChannelType.GuildForum;
         const isText = targetChannel.isTextBased() && !targetChannel.isThread();
 
@@ -95,14 +93,12 @@ export async function execute(interaction) {
 
         let thread;
         if (isForum) {
-          // フォーラムチャンネル用のスレッド作成
           thread = await targetChannel.threads.create({
             name,
             message: { content: message },
             autoArchiveDuration: 1440,
           });
         } else {
-          // テキストチャンネル用のスレッド作成
           const parentChannel = targetChannel.isThread() ? targetChannel.parent : targetChannel;
           thread = await parentChannel.threads.create({
             name,
