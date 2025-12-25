@@ -11,6 +11,6 @@
 7. ルール違反した場合、法的処置をします
 
 ### 関連
-作者のDiscord: 7n6r
-サポートサーバー: https://discord.gg/CNuAEaJPx5
-公式サイト: https://bot.discordd.me/
+- 作者のDiscord: 7n6r
+- サポートサーバー: https://discord.gg/CNuAEaJPx5
+- 公式サイト: https://bot.discordd.me/
