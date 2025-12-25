@@ -194,7 +194,6 @@ export async function execute(interaction) {
   const userId = interaction.user.id;
   const currencyName = getCurrencyName(guildId);
 
-  // 管理者権限チェック
   const isAdmin = interaction.member.permissions.has(PermissionFlagsBits.ManageGuild);
   if (['add', 'remove', 'shop', 'setcurrency'].includes(subcommandGroup || subcommand) && !isAdmin) {
     return interaction.editReply({
