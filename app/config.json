@@ -1,10 +1,10 @@
 {
   "botban": {
     "users": {
-      "example-user-id": true
+      "1234567890": true
     },
     "servers": {
-      "example-server-id": true
+      "1234567890": true
     }
   }
 }
